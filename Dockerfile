@@ -1,7 +1,7 @@
 FROM maven:3.8.3-jdk-11 AS build
 COPY . /app
 WORKDIR /app
-RUN mvn clean install -DskipTests
+RUN mvn clean package -DskipTests
 
 # Second stage: create a slim image
 FROM openjdk:11-jre-slim
