@@ -31,3 +31,6 @@ workflows:
   simple_workflow:
     jobs:
       - build-and-test
+      - publish:
+          requires:
+            - build-and-test
