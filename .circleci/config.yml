@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  build:
+    docker:
+      - image: cimg/openjdk:19.0.1
+    steps:
+      - checkout
+      - run:
+          name: Build
+          command: mvn -B -DskipTests clean package
+      # - run:
+      #     name: Test
+      #     command: mvn test
+
+workflows:
+  simple_workflow:
+    jobs:
+      - build
