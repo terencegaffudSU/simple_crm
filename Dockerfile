@@ -1,4 +1,4 @@
-FROM maven:3.8.3-jdk-11 AS build
+FROM maven:3.8.6-jdk-11 AS build
 COPY . /app
 WORKDIR /app
 RUN mvn clean package -DskipTests
