@@ -1,7 +1,7 @@
 FROM maven:3.9.6-eclipse-temurin-17 AS build
 COPY . /app
 WORKDIR /app
-RUN mvn clean package -DskipTests
+RUN mvn clean install -DskipTests
 
 # Second stage: create a slim image
 FROM eclipse-temurin:17

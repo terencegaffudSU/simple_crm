@@ -22,8 +22,10 @@ jobs:
       - docker/check
       - docker/build:
           image: terencegaffudsu/simple-crm
+          tag: 1.0.0
       - docker/push:
           image: terencegaffudsu/simple-crm
+          tag: 1.0.0
 
 
 
