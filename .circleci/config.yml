@@ -1,7 +1,7 @@
 version: 2.1
 
 jobs:
-  build:
+  build-and-test:
     docker:
       - image: cimg/openjdk:19.0.1
     steps:
@@ -12,8 +12,22 @@ jobs:
       - run:
           name: Test
           command: mvn test
+  publish:
+    executor: docker/docker
+    steps:
+      - setup_remote_docker
+      - checkout
+      - docker/check
+      - docker/build:
+          image: terencegaffudsu/simple-crm
+          tag: 1.0.0
+      - docker/push:
+          image: terencegaffudsu/simple-crm
+          tag: 1.0.0
+
+
 
 workflows:
   simple_workflow:
     jobs:
-      - build
+      - build-and-test
