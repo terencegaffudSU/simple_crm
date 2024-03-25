@@ -37,8 +37,8 @@ jobs:
           name: Heroku Container Push
           command: | 
               heroku container:login
-              heroku container:push web -a simple_crm
-              heroku container:release web -a simple_crm
+              heroku container:push web -a simple-crm
+              heroku container:release web -a simple-crm
 
 
 workflows:
